@@ -6,12 +6,13 @@ import {
 } from "../actions";
 
 const initialState = {
-  movieName: null,
+  title: null,
   description: null,
+  movie: null,
   isFetching: false,
   error: `Nope, can't find what you were looking for`,
 };
-
+//if the action is coming in correctly
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CLEAR_ERROR: {
@@ -30,7 +31,8 @@ export const reducer = (state = initialState, action) => {
     case MOVIE_RETRIEVED: {
       return {
         ...state,
-        quote: action.payload,
+        movie: action.payload,
+        //action is movie
         isFetching: false,
       };
     }
